@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Video and Lyrics</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    </head>
+    <script>
+        function validate(event){
+            let submitType=event.submitter.value;
+            let lyricsInput=document.querySelector('input[name="lyrics"]');
+            let languageInput=document.querySelector('input[name="language"]');
+            let videoInput=document.querySelector('input[name="video"]')
+            if (submitType==='lyrics'){
+                if(lyricsInput.value.trim()===""){
+                    alert("Please enter lyrics");
+                    event.preventDefault();
+                    return;
+                }
+                if (languageInput.value.trim()===""){
+                    alert("Please enter a language");
+                    event.preventDefault();
+                    return;
+                }
+            }
+            if (submitType==="upload"){
+                if (videoInput.files.length===0){
+                    alert('Please select a video!');
+                    event.preventDefault()
+                    return;
+                }
+            }
+        }
+    </script>
+    <body>
+        <form action="/video_to_audio" method="post" enctype="multipart/form-data" onsubmit="validate(event)">
+            <input type="file" name="video" accept="video/mp4">
+            <button type="submit" name="submitbutton" value="upload">Upload</button>
+            <br>
+            <br>
+        </form>
+        <form action="/lyrics_explain" method="post" enctype="multipart/form-data" onsubmit="validate(event)">
+            Enter lyrics of a song: <input type="text" name="lyrics" accept="link">
+            <br>
+            Enter language of explaination: <input type="text" name="language">
+            <br>
+            <button type="submit" value="lyrics">Submit</button>
+        </form>
+    </body>
+</html>

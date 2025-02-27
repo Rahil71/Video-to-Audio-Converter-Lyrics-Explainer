@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download MP3</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <h2>Your video has been converted successfully!</h2>
+    <p>Click the button below to download your MP3 file:</p>
+    <a href="{{ url_for('download_file', filename=filename) }}">
+        <button>Download MP3</button>
+    </a>
+</body>
+</html>
