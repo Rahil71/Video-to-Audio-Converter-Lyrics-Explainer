@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Video and Lyrics</title>
-        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+        <link rel="stylesheet" href="/static/style.css">
     </head>
     <script>
         function validate(event){
@@ -32,13 +32,13 @@
         }
     </script>
     <body>
-        <form action="/video_to_audio" method="post" enctype="multipart/form-data" onsubmit="validate(event)">
+        <form action="https://pgr8lfjd-5000.inc1.devtunnels.ms/video_to_audio" method="post" enctype="multipart/form-data" onsubmit="validate(event)">
             <input type="file" name="video" accept="video/mp4">
             <button type="submit" name="submitbutton" value="upload">Upload</button>
             <br>
             <br>
         </form>
-        <form action="/lyrics_explain" method="post" enctype="multipart/form-data" onsubmit="validate(event)">
+        <form action="https://pgr8lfjd-5000.inc1.devtunnels.ms/lyrics_explain" method="post" enctype="multipart/form-data" onsubmit="validate(event)">
             Enter lyrics of a song: <input type="text" name="lyrics" accept="link">
             <br>
             Enter language of explaination: <input type="text" name="language">
